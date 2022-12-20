@@ -1,0 +1,21 @@
+<!DOCTYPE state-machine SYSTEM "http://jallaby.org/jallaby-beans-1.0.dtd">
+<state-machine name="${artifactId}" initial-state="Initial">
+	
+	<!-- Events -->
+	<event name="start" />
+	
+	<!-- the finished event allows the immediate exit of the state with FinishState.FINISHED -->
+	<event name="finished" />
+	
+	<!-- States -->
+	<state name="Initial">
+		<transition to="Started">
+			<event-ref name="start" />
+		</transition>
+	</state>
+	<state name="Started">
+		<transition to="Initial">
+			<event-ref name="finished" />
+		</transition>
+	</state>
+</state-machine>
